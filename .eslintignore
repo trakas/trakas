@@ -1,7 +1,14 @@
-build
-dist
+# Builds
 lib
-coverage
+dist
+build
+
+# Yarn
 .yarn
-te?mp
 .pnp.*
+
+# Test
+coverage
+
+# Misc
+te?mp
