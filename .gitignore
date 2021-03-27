@@ -1,0 +1,15 @@
+# Yarn 2 (Zero-Installs)
+.yarn/*
+!.yarn/cache
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# Editors
+.idea
+.vscode
+
+# Builds
+lib
