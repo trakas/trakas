@@ -1,0 +1,77 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  yarn:
+    name: Yarn
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.3.4
+      - name: Set up Node
+        uses: actions/setup-node@v2.1.4
+        with:
+          check-latest: true
+      - name: Check dependencies
+        run: yarn --immutable --immutable-cache
+  tests:
+    name: Tests
+    runs-on: ubuntu-latest
+    needs: [yarn]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.3.4
+      - name: Set up Node
+        uses: actions/setup-node@v2.1.4
+        with:
+          check-latest: true
+      - name: Run tests
+        run: yarn test
+  eslint:
+    name: ESLint
+    runs-on: ubuntu-latest
+    needs: [yarn]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.3.4
+      - name: Set up Node
+        uses: actions/setup-node@v2.1.4
+        with:
+          check-latest: true
+      - name: Run Eslint check
+        run: yarn eslint
+  prettier:
+    name: Prettier
+    runs-on: ubuntu-latest
+    needs: [yarn]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.3.4
+      - name: Set up Node
+        uses: actions/setup-node@v2.1.4
+        with:
+          check-latest: true
+      - name: Run Prettier check
+        run: yarn prettier
+  release:
+    name: NPM
+    runs-on: ubuntu-latest
+    needs: [tests, eslint, prettier]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.3.4
+        with:
+          fetch-depth: 0
+      - name: Set up Node
+        uses: actions/setup-node@v2.1.4
+        with:
+          check-latest: true
+      - name: Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: yarn publish
