@@ -6,7 +6,8 @@
   "types": "lib/index.d.ts",
   "scripts": {
     "test": "jest --config ./jest.config.ts",
-    "prepack": "tsc --build"
+    "prepack": "tsc --build",
+    "publish": "semantic-release"
   },
   "directories": {
     "lib": "lib",
@@ -20,7 +21,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/trakas/trakas/tree/master/packages/trakas-js"
+    "url": "https://github.com/trakas/trakas.git",
+    "directory": "packages/trakas-js"
   },
   "keywords": [
     "trakas",
