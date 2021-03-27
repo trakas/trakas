@@ -1,5 +1,6 @@
 # [Trakas](http://trakas.js.org) &middot; assistant of the gods
 
+[![deepcode](https://www.deepcode.ai/api/gh/badge?key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwbGF0Zm9ybTEiOiJnaCIsIm93bmVyMSI6InRyYWthcyIsInJlcG8xIjoidHJha2FzIiwiaW5jbHVkZUxpbnQiOmZhbHNlLCJhdXRob3JJZCI6Mjg0MzQsImlhdCI6MTYxNjg5Mjc2MX0.EZkEbhYk9AL8Iv19Lte24sYC04krXp9NIYPK8Q-wTvc)](https://www.deepcode.ai/app/gh/trakas/trakas/_/dashboard?utm_content=gh%2Ftrakas%2Ftrakas)
 [![Analyses](https://github.com/trakas/trakas/actions/workflows/analyses.yml/badge.svg)](https://github.com/trakas/trakas/actions/workflows/analyses.yml)
 [![Release](https://github.com/trakas/trakas/actions/workflows/release.yml/badge.svg)](https://github.com/trakas/trakas/actions/workflows/release.yml)
 [![GitHub issues](https://img.shields.io/github/issues-raw/trakas/trakas)](https://github.com/trakas/trakas/issues)
@@ -21,7 +22,7 @@ We have several examples [on the website](https://trakas.js.org). Here is the fi
 ```ts
 import { randomNumber } from "@trakas/js";
 
-console.log(randomNumber(10, 20)) // A integer number in [10, 20]
+console.log(randomNumber(10, 20)); // A integer number in [10, 20]
 ```
 
 ## Test
