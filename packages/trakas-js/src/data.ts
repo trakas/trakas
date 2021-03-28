@@ -12,11 +12,7 @@ export function normalizeByKey<T>(data: T[], key: keyof T): DataObject<T> {
   }, {});
 }
 
-export function subtractData<T>(
-  data: T[],
-  dataObject: DataObject<T>,
-  key: keyof T
-): DataObject<T> {
+export function subtractData<T>(data: T[], dataObject: DataObject<T>, key: keyof T): DataObject<T> {
   const normalizedData = normalizeByKey(data, key);
   for (const key in dataObject) {
     // TODO: Warning: Possible iteration over unexpected (custom / inherited) members,
@@ -29,10 +25,11 @@ export function subtractData<T>(
   return normalizedData;
 }
 
-export function isEqualExcept<
-  L extends DataObject<any>,
-  R extends DataObject<any>
->(leftObject: L, rightObject: R, excepts: (keyof (L & R))[] = []): boolean {
+export function isEqualExcept<L extends DataObject<any>, R extends DataObject<any>>(
+  leftObject: L,
+  rightObject: R,
+  excepts: (keyof (L & R))[] = []
+): boolean {
   const newLeftObject = { ...leftObject } as L & Partial<R>;
   const newRightObject = { ...rightObject } as R & Partial<L>;
 

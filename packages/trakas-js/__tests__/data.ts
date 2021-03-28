@@ -1,9 +1,4 @@
-import {
-  DataObject,
-  isEqualExcept,
-  normalizeByKey,
-  subtractData,
-} from "../src";
+import { DataObject, isEqualExcept, normalizeByKey, subtractData } from "../src";
 
 type Note = {
   id: number;
