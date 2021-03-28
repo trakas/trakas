@@ -2,11 +2,17 @@
   "name": "@trakas/js",
   "description": "Utilities for Javascript and Typescript",
   "homepage": "https://trakas.js.org",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "main": "cjs/index.js",
+  "module": "es/index.js",
+  "browser": "umd/index.js",
+  "types": "types/index.d.ts",
   "scripts": {
     "test": "jest --config ./jest.config.ts",
-    "prepack": "tsc --build",
+    "build:cjs": "tsc --outDir cjs",
+    "build:es": "tsc --module esnext --outDir es",
+    "build:umd": "tsc --module umd --outDir umd",
+    "build:types": "tsc --declaration --emitDeclarationOnly --outDir types",
+    "prepack": "yarn build:cjs && yarn build:es && yarn build:umd && yarn build:types",
     "publish": "semantic-release"
   },
   "directories": {
@@ -14,7 +20,10 @@
     "test": "__tests__"
   },
   "files": [
-    "lib"
+    "cjs",
+    "es",
+    "umd",
+    "types"
   ],
   "publishConfig": {
     "access": "public"

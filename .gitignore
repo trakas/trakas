@@ -13,3 +13,7 @@
 
 # Builds
 lib
+cjs
+es
+umd
+types

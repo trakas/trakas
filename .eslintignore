@@ -2,6 +2,10 @@
 lib
 dist
 build
+cjs
+es
+umd
+types
 
 # Yarn
 .yarn
