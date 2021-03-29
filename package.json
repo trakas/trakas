@@ -5,7 +5,7 @@
     "packages/*"
   ],
   "scripts": {
-    "test": "yarn workspaces foreach -pt run test",
+    "test": "jest",
     "eslint": "eslint '*/**/*.{ts,tsx}'",
     "prettier": "prettier --check .",
     "format": "prettier --write .",
@@ -14,6 +14,7 @@
   "devDependencies": {
     "@babel/core": "^7.13.10",
     "@babel/preset-env": "^7.13.12",
+    "@babel/preset-react": "^7.13.13",
     "@babel/preset-typescript": "^7.13.0",
     "@jest/types": "^26.6.2",
     "@semantic-release/commit-analyzer": "^8.0.1",

@@ -1,0 +1,82 @@
+{
+  "name": "@trakas/react",
+  "description": "Utilities for React",
+  "homepage": "https://trakas.js.org",
+  "main": "cjs/index.js",
+  "module": "es/index.js",
+  "types": "types/index.d.ts",
+  "sideEffects": false,
+  "scripts": {
+    "test": "jest --config ./jest.config.ts",
+    "build:cjs": "tsc --outDir cjs",
+    "build:es": "tsc --module esnext --outDir es",
+    "build:umd": "tsc --module umd --outDir umd",
+    "build:types": "tsc --declaration --emitDeclarationOnly --outDir types",
+    "prepack": "yarn build:cjs && yarn build:es && yarn build:umd && yarn build:types",
+    "publish": "semantic-release"
+  },
+  "directories": {
+    "test": "__tests__"
+  },
+  "files": [
+    "cjs",
+    "es",
+    "umd",
+    "types"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/trakas/trakas.git",
+    "directory": "packages/trakas-react"
+  },
+  "keywords": [
+    "trakas",
+    "utilities",
+    "utility",
+    "util",
+    "utils",
+    "javascript",
+    "typescript",
+    "js",
+    "ts",
+    "tsx",
+    "functions",
+    "types",
+    "library",
+    "lib",
+    "libraries",
+    "libs",
+    "react",
+    "reactjs",
+    "component",
+    "components",
+    "functional component",
+    "hook",
+    "hooks"
+  ],
+  "author": "Trakas Community <contact@trakasjs.com> (https://trakasjs.com)",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^16.8.0 || ^17.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react-dom": {
+      "optional": true
+    },
+    "react-native": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@testing-library/dom": "^7.30.1",
+    "@testing-library/jest-dom": "^5.11.10",
+    "@testing-library/react": "^11.2.5",
+    "@testing-library/user-event": "^13.0.16",
+    "@types/react": "^17",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}
