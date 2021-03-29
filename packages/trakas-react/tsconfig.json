@@ -1,8 +1,7 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "lib": ["dom"],
-    "jsx": "preserve"
+    "jsx": "react-jsx"
   },
   "include": ["src/index.ts"]
 }
