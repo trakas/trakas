@@ -1,5 +1,5 @@
-import configs from "../../jest.config";
-
-configs.testEnvironment = "node";
-
-export default configs;
+export default {
+  clearMocks: true,
+  resetModules: true,
+  testEnvironment: "node",
+};

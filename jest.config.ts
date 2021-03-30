@@ -16,7 +16,7 @@ const configs: Config.InitialOptions = {
   // cacheDirectory: "C:\\Users\\hoang\\AppData\\Local\\Temp\\jest",
 
   // Automatically clear mock calls and instances between every test
-  clearMocks: true,
+  // clearMocks: false,
 
   // Indicates whether the coverage information should be collected while executing the test
   // collectCoverage: false,
@@ -116,7 +116,7 @@ const configs: Config.InitialOptions = {
   // restoreMocks: false,
 
   // The root directory that Jest should scan for tests and modules within
-  rootDir: __dirname,
+  // rootDir: undefined,
 
   // A list of paths to directories that Jest should use to search for files in
   // roots: [
