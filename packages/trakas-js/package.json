@@ -7,7 +7,6 @@
   "types": "types/index.d.ts",
   "sideEffects": false,
   "scripts": {
-    "test": "jest --config ./jest.config.ts",
     "build:cjs": "tsc --outDir cjs",
     "build:es": "tsc --module esnext --outDir es",
     "build:umd": "tsc --module umd --outDir umd",
