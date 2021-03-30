@@ -28,7 +28,7 @@ export function subtractData<T>(data: T[], dataObject: DataObject<T>, key: keyof
 export function isEqualExcept<L extends DataObject<any>, R extends DataObject<any>>(
   leftObject: L,
   rightObject: R,
-  excepts: (keyof (L & R))[] = []
+  excepts: Array<keyof (L & R)> = []
 ): boolean {
   const newLeftObject = { ...leftObject } as L & Partial<R>;
   const newRightObject = { ...rightObject } as R & Partial<L>;

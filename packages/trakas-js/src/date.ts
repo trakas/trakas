@@ -1,5 +1,5 @@
-function padNumber(number: number): string {
-  return number.toString().padStart(2, "0");
+function padNumber(num: number): string {
+  return num.toString().padStart(2, "0");
 }
 
 export function formatTimeInSecond(second: string | number): string {
