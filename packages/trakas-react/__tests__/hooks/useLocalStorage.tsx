@@ -28,8 +28,8 @@ describe("useLocalStorage", () => {
   test("set initial value for nonexistent item in Local Storage", async () => {
     render(<TestComponent initialValue={1} value={2} />);
 
-    const buttonElement = await screen.findByText("1");
-    expect(buttonElement).toBeInTheDocument();
+    const buttonElement = screen.getByRole("button", { name: "set" });
+    expect(buttonElement).toHaveTextContent("1");
   });
 
   test("return undefined for nonexistent item with no initial value", async () => {
@@ -42,7 +42,7 @@ describe("useLocalStorage", () => {
   test("set value after initializing", async () => {
     render(<TestComponent initialValue={1} value={2} />);
 
-    const buttonElement = await screen.findByText("1");
+    const buttonElement = screen.getByRole("button", { name: "set" });
     userEvent.click(buttonElement);
 
     expect(buttonElement).toHaveTextContent("2");
@@ -53,8 +53,8 @@ describe("useLocalStorage", () => {
     localStorage.setItem("item", String(3));
     render(<TestComponent initialValue={1} value={2} />);
 
-    const buttonElement = await screen.findByText("3");
-    expect(buttonElement).toBeInTheDocument();
+    const buttonElement = screen.getByRole("button", { name: "set" });
+    expect(buttonElement).toHaveTextContent("3");
   });
 
   test("clear the value which is already stored in Local Storage", async () => {
@@ -71,31 +71,31 @@ describe("useLocalStorage", () => {
     localStorage.setItem("item", `{"a":1`);
     render(<TestComponent initialValue={{ b: 2 }} value={{ c: 3 }} />);
 
-    const buttonElement = await screen.findByText(`{"b":2}`);
-    expect(buttonElement).toBeInTheDocument();
+    const buttonElement = screen.getByRole("button", { name: "set" });
+    expect(buttonElement).toHaveTextContent(`{"b":2}`);
   });
 
   test("load the initial value when stored value is incompatible value", async () => {
     localStorage.setItem("item", "NaN");
     render(<TestComponent initialValue={1} value={2} />);
 
-    const buttonElement = await screen.findByText("1");
-    expect(buttonElement).toBeInTheDocument();
+    const buttonElement = screen.getByRole("button", { name: "set" });
+    expect(buttonElement).toHaveTextContent("1");
   });
 
   test("load the initial value when stored value is null", async () => {
     localStorage.setItem("item", "null");
     render(<TestComponent initialValue={1} value={2} />);
 
-    const buttonElement = await screen.findByText("1");
-    expect(buttonElement).toBeInTheDocument();
+    const buttonElement = screen.getByRole("button", { name: "set" });
+    expect(buttonElement).toHaveTextContent("1");
   });
 
   test("load the initial value when stored value is undefined", async () => {
     localStorage.setItem("item", "undefined");
     render(<TestComponent initialValue={1} value={2} />);
 
-    const buttonElement = await screen.findByText("1");
-    expect(buttonElement).toBeInTheDocument();
+    const buttonElement = screen.getByRole("button", { name: "set" });
+    expect(buttonElement).toHaveTextContent("1");
   });
 });

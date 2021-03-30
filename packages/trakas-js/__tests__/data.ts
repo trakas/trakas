@@ -12,8 +12,8 @@ const data: Note[] = [
 ];
 
 describe("data", () => {
-  describe("normalizeByKey", function () {
-    it("should convert an array of data to data in object by key", function () {
+  describe("normalizeByKey", () => {
+    test("convert an array of data to data in object by key", () => {
       const expectedData: DataObject<Note> = {
         0: data[0],
         1: data[1],
@@ -25,8 +25,8 @@ describe("data", () => {
     });
   });
 
-  describe("subtractData", function () {
-    it("should subtract  data from an array with a data object", function () {
+  describe("subtractData", () => {
+    test("subtract  data from an array with a data object", () => {
       const subtractedData: DataObject<Note> = { 1: data[1] };
       const expectedData: DataObject<Note> = {
         0: data[0],
@@ -38,8 +38,8 @@ describe("data", () => {
     });
   });
 
-  describe("isEqualExcept", function () {
-    it("should return true for the same two data objects", function () {
+  describe("isEqualExcept", () => {
+    test("return true for the same two data objects", () => {
       const leftObject = { a: 1, b: 2 };
       const rightObject = { a: 1, b: 2 };
 
@@ -47,7 +47,7 @@ describe("data", () => {
       expect(compareResult).toBe(true);
     });
 
-    it("should return false for different two data objects", function () {
+    test("return false for different two data objects", () => {
       const leftObject = { a: 1, b: 2 };
       const rightObject = { a: 1, b: 2, c: undefined };
 
@@ -55,7 +55,7 @@ describe("data", () => {
       expect(compareResult).toBe(false);
     });
 
-    it("should return true for two data objects when the different field is ignored", function () {
+    test("return true for two data objects when the different field is ignored", () => {
       const leftObject = { a: 1, b: 2 };
       const rightObject = { a: 1, b: 2, c: undefined };
 

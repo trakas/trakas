@@ -16,10 +16,6 @@ function TestComponent() {
 }
 
 describe("useDebounce", () => {
-  beforeEach(() => {
-    jest.useFakeTimers();
-  });
-
   test("not updates value within 5s", async () => {
     render(<TestComponent />);
     act(() => {
@@ -33,11 +29,10 @@ describe("useDebounce", () => {
   test("updates value after 5s", async () => {
     render(<TestComponent />);
     act(() => {
-      jest.advanceTimersByTime(5000);
+      jest.advanceTimersByTime(5001);
     });
 
-    const textElement = await screen.findByText("2");
+    const textElement = screen.queryByText("2");
     expect(textElement).not.toBeNull();
-    expect(textElement).toBeInTheDocument();
   });
 });
