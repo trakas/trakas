@@ -1,0 +1,64 @@
+---
+title: useLocalStorage
+---
+
+Technically, this is a wrapper hook for
+[window.localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage). With the features of Hook, you can inject the localStorage
+(as a [reusable stateful logic](https://reactjs.org/docs/hooks-intro.html#its-hard-to-reuse-stateful-logic-between-components))
+to [React lifecycle](https://reactjs.org/docs/state-and-lifecycle.html). This hook can play well with
+[useContext](https://reactjs.org/docs/hooks-reference.html#usecontext) to manage states across the components tree.
+
+```jsx title="Authentication.jsx"
+import { useLocalStorage } from "@trakas/react";
+
+export function Authentication() {
+  const [token, setToken, clearToken] = useLocalStorage("token");
+
+  const handleAuthenticate = () => {
+    if (!token) {
+      setToken("this is super secret!");
+    } else {
+      clearToken();
+    }
+  };
+
+  return (
+    <div>
+      <button onClick={handleAuthenticate}>{token ? "Log out" : "Login"}</button>
+      <div>Token: {token}</div>
+      <div>Token (localStorage): {JSON.stringify(localStorage.getItem("token"))}</div>
+    </div>
+  );
+}
+```
+
+## Options
+
+```jsx
+const [storedValue, setValue, clearValue] = useLocalStorage(key, initialValue);
+```
+
+- `key: string`
+  - **Required**
+  - The key to store data to localStorage
+- `initialValue: T | undefined`
+  - _Optional_
+  - Defaults to `undefined`
+  - The initial value when there is no value is stored in localStorage
+
+### Returns
+
+- `storedValue: T | undefined`
+  - The value was stored to localStorage.
+- `setValue: (value: T) => void`
+  - Update the value in localStorage and the `storedValue`
+- `clearValue: () => void`
+  - Remove the value in localStorage and update `storedValue` to `initialValue`
+
+:::note
+Basically, the value that you can store in localStorage can be _any_ thing.
+
+useLocalStorage uses [JSON.parse](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse)
+to parse value from localStorage. So if the value was stored is one of the [falsy](https://developer.mozilla.org/en-US/docs/Glossary/Falsy)
+values, `storedValue` will get the value from `initialValue`.
+:::

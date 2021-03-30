@@ -1,0 +1,44 @@
+---
+title: usePrefersDarkMode
+---
+
+Thanks to [useMedia](./use-media.mdx), we can easily define a hook that allow us to query
+[prefers-color-scheme](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) through an
+operating system setting. So that, we can indicate that whether the current system is preferred the
+[dark mode](https://csspoint101.com/the-ultimate-guide-to-dark-mode/#What_is_Dark_mode) or not.
+
+```jsx title="ThemeSetting.jsx"
+import { useLocalStorage, usePrefersDarkMode } from "@trakas/react";
+
+export function ThemeSetting() {
+  const prefersDarkMode = usePrefersDarkMode();
+  const defaultTheme = prefersDarkMode ? "dark" : "light";
+  const [theme, setTheme, clearTheme] = useLocalStorage("theme", defaultTheme);
+
+  const handleChangeTheme = (e) => {
+    setTheme(e.target.value);
+  };
+
+  return (
+    <div>
+      <select value={theme} onChange={handleChangeTheme}>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+      </select>
+      <button onClick={clearTheme}>Reset Theme</button>
+      <div>Theme (localStorage): {JSON.stringify(localStorage.getItem("theme"))}</div>
+    </div>
+  );
+}
+```
+
+## Options
+
+```jsx
+const prefersDarkMode = usePrefersDarkMode();
+```
+
+### Returns
+
+- `prefersDarkMode: boolean`
+  - Whether the current system is preferred the [dark mode](https://csspoint101.com/the-ultimate-guide-to-dark-mode/#What_is_Dark_mode) or not

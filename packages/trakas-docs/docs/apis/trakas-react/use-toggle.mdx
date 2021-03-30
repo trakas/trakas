@@ -1,0 +1,32 @@
+---
+title: useToggle
+---
+
+Works as [useState](https://reactjs.org/docs/hooks-reference.html#usestate) but only used for toggling `boolean` value.
+
+```jsx
+import { useToggle } from "@trakas/react";
+
+function ToggleButton() {
+  const [value, toggleValue] = useToggle();
+  return <button onClick={toggleValue}>{value ? "On" : "Off"}</button>;
+}
+```
+
+## Options
+
+```jsx
+const [value, toggleValue] = useToggle(initialValue);
+```
+
+- `initialValue: boolean`
+  - _Optional_
+  - Defaults to `false`
+  - Set this value to change default toggle `value`
+
+### Returns
+
+- `toggleValue: () => void`
+  - Switch `value` from `true` to `false` and otherwise
+- `value: boolean`
+  - The last state of toggle value

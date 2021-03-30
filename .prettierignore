@@ -1,4 +1,4 @@
-# Builds
+# Generated files
 lib
 dist
 build
@@ -6,6 +6,8 @@ cjs
 es
 umd
 types
+.docusaurus
+.cache-loader
 
 # Yarn
 .yarn

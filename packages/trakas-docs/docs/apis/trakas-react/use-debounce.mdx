@@ -1,0 +1,50 @@
+---
+title: useDebounce
+---
+
+When the value changes, the hook will **delay** updating the state for a **specific timeout**. If the following change
+occurs **before** the timeout **moment**, the delay will **restart** until **no change occurs within that timeout**.
+
+It has the exact mechanism with [lodash.debounce](https://lodash.com/docs/#debounce), but this one is
+[React hook](https://reactjs.org/docs/hooks-intro.html).
+
+Usually, it helps implement the components that need a delay time before executing some actions or events (such as the
+`Search` component) to prevent multiple requests to the server to save resources.
+
+```jsx title="SearchInput.jsx"
+import { useDebounce } from "@trakas/react";
+import { useEffect, useState } from "react";
+
+export function Search() {
+  const [searchTerm, setSearchTerm] = useState("");
+  const debouncedSearchTerm = useDebounce(searchTerm, 250);
+
+  useEffect(() => {
+    debouncedSearchTerm && console.log("sendToServer(debouncedSearchTerm)");
+  }, [debouncedSearchTerm]);
+
+  const handleSearch = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
+  return <input value={searchTerm} onChange={handleSearch} />;
+}
+```
+
+## Options
+
+```jsx
+const debouncedValue = useDebounce(value, delay);
+```
+
+- `value: T | undefined`
+  - **Required**
+  - The value is being tracked by the hook.
+- `delay: number`
+  - **Required**
+  - Delay time before updating `debouncedValue`
+
+### Returns
+
+- `debouncedValue: T | undefined`
+  - The value is asynchronously updated

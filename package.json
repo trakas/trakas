@@ -6,10 +6,12 @@
   ],
   "scripts": {
     "test": "jest",
-    "eslint": "eslint '*/**/*.{ts,tsx}'",
+    "eslint": "eslint '*/**/*.{ts,tsx,mdx}'",
     "prettier": "prettier --check .",
     "format": "prettier --write .",
-    "publish": "yarn workspaces foreach run publish"
+    "docs": "yarn workspace @trakas/docs run start",
+    "publish": "yarn workspaces foreach --exclude @trakas/docs run publish",
+    "publish:docs": "yarn workspace @trakas/docs run deploy"
   },
   "devDependencies": {
     "@babel/core": "^7.13.14",
@@ -19,7 +21,7 @@
     "@jest/types": "^26.6.2",
     "@semantic-release/commit-analyzer": "^8.0.1",
     "@semantic-release/github": "^7.2.0",
-    "@semantic-release/npm": "^7.0.10",
+    "@semantic-release/npm": "^7.1.0",
     "@semantic-release/release-notes-generator": "^9.0.2",
     "@types/jest": "^26",
     "@typescript-eslint/eslint-plugin": "^4.20.0",
@@ -27,6 +29,7 @@
     "babel-jest": "^26.6.3",
     "eslint": "^7.23.0",
     "eslint-plugin-jest": "^24.3.2",
+    "eslint-plugin-mdx": "^1.11.1",
     "eslint-plugin-react": "^7.23.1",
     "jest": "^26.6.3",
     "prettier": "2.2.1",

@@ -11,6 +11,7 @@
     "plugin:jest/recommended",
     "plugin:jest/style"
   ],
+  "overrides": [{ "files": ["*.mdx"], "extends": ["plugin:mdx/recommended", "plugin:mdx/overrides"] }],
   "parserOptions": {
     "ecmaVersion": 12,
     "ecmaFeatures": {
