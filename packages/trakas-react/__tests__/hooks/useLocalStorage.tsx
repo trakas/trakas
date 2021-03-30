@@ -3,8 +3,8 @@ import userEvent from "@testing-library/user-event";
 import { useLocalStorage } from "../../src/hooks/useLocalStorage";
 
 type TestComponentProps<T> = {
-  initialValue?: unknown;
-  value: unknown;
+  initialValue?: T;
+  value: T;
 };
 
 function TestComponent<T>(props: TestComponentProps<T>) {
