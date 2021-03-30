@@ -1,0 +1,85 @@
+---
+id: installation
+title: Installation
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import { defaultPackage, groupPackage, packageTabs } from "../../configs.mdx";
+
+Trakas is designed as a [monorepo](https://en.wikipedia.org/wiki/Monorepo)
+with multiple [packages](https://github.com/trakas/trakas/tree/master/packages)
+
+You can install Trakas with [npm](https://www.npmjs.com), [Yarn](https://yarnpkg.com), or a good ol' `<script>` via [unpkg.com](https://unpkg.com).
+
+## JavaScript
+
+<Tabs
+  groupId={groupPackage}
+  values={packageTabs}
+  defaultValue={defaultPackage}
+>
+
+<TabItem value="npm">
+
+```bash
+npm install @trakas/js
+```
+
+</TabItem>
+
+<TabItem value="yarn">
+
+```bash
+yarn add @trakas/js
+```
+
+</TabItem>
+
+<TabItem value="pnpm">
+
+```bash
+pnpm add @trakas/js
+```
+
+</TabItem>
+
+</Tabs>
+
+## React
+
+<Tabs
+  groupId={groupPackage}
+  values={packageTabs}
+  defaultValue={defaultPackage}
+>
+
+<TabItem value="npm">
+
+```bash
+npm install @trakas/react
+```
+
+</TabItem>
+
+<TabItem value="yarn">
+
+```bash
+yarn add @trakas/react
+```
+
+</TabItem>
+
+<TabItem value="pnpm">
+
+```bash
+pnpm add @trakas/react
+```
+
+</TabItem>
+
+</Tabs>
+
+:::important
+[React](https://reactjs.org) (≥ v16.8) is required as a peer dependency.
+:::

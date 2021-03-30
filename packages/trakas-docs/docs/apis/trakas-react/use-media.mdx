@@ -1,0 +1,51 @@
+---
+title: useMedia
+---
+
+[window.matchMedia()](https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia) can be used to determine if
+the [document](https://developer.mozilla.org/en-US/docs/Web/API/Document) matches the
+[media query](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries) string.
+This hook utilizes this API to work with [**responsive web design**](https://www.w3schools.com/css/css_rwd_intro.asp) inside
+[React lifecycle](https://reactjs.org/docs/state-and-lifecycle.html) **programmatically**.
+
+```jsx title="ColumnCalculator.jsx"
+import { useMedia } from "@trakas/react";
+
+export function ColumnCalculator() {
+  const columnCount = useMedia(
+    // Media queries
+    ["(min-width: 1500px)", "(min-width: 1000px)", "(min-width: 600px)"],
+    // Column counts (relates to above media queries by array index)
+    [5, 4, 3],
+    // Default column count
+    2
+  );
+
+  return <div>Column count: {columnCount}</div>;
+}
+```
+
+## Options
+
+```jsx
+const queryValue = useMedia(queries, values, defaultValue);
+```
+
+- `queries: string[]`
+  - **Required**
+  - Array of [media query](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries) strings
+- `values: T[]`
+  - **Required**
+  - The array of values corresponding to `queries`
+- `defaultValue: T`
+  - **Required**
+  - The fallback value when there is no query is matched
+
+### Returns
+
+- `queryValue: T`
+  - The value of the **first** matched query
+
+:::note
+**Only** the value of the **first matched query** is returned. It would be best to use the **same attribute** for all `queries` to get an effective result.
+:::
