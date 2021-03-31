@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { useLocalStorage } from "../../src/hooks/useLocalStorage";
+import { useLocalStorage } from "../../src";
 
 type TestComponentProps<T> = {
   initialValue?: T;
@@ -65,6 +65,17 @@ describe("useLocalStorage", () => {
     userEvent.click(buttonElement);
 
     expect(localStorage.getItem("item")).toBeNull();
+  });
+
+  test("update state to initial value after clearing value", async () => {
+    localStorage.setItem("item", String(3));
+    render(<TestComponent initialValue={1} value={2} />);
+
+    const setButtonElement = screen.getByRole("button", { name: "set" });
+    const clearButtonElement = screen.getByRole("button", { name: "clear" });
+    userEvent.click(clearButtonElement);
+
+    expect(setButtonElement).toHaveTextContent("1");
   });
 
   test("load the initial value when stored value is error", async () => {
