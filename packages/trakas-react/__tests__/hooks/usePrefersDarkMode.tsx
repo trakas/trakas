@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { usePrefersDarkMode } from "../../src/hooks/usePrefersDarkMode";
+import { usePrefersDarkMode } from "../../src";
 import { mockMatchMedia } from "../../utils/mocks";
 
 function TestComponent() {

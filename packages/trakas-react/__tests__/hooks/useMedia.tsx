@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { useMedia } from "../../src/hooks/useMedia";
+import { useMedia } from "../../src";
 import { mockMatchMedia } from "../../utils/mocks";
 
 function TestComponent() {

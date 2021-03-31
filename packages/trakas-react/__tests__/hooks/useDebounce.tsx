@@ -1,6 +1,6 @@
 import { act, render, screen } from "@testing-library/react";
 import { useEffect, useState } from "react";
-import { useDebounce } from "../../src/hooks/useDebounce";
+import { useDebounce } from "../../src";
 
 function TestComponent() {
   const [value, setValue] = useState("1");
