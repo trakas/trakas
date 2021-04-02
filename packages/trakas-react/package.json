@@ -4,6 +4,10 @@
   "homepage": "https://trakas.js.org",
   "main": "cjs/index.js",
   "module": "es/index.js",
+  "exports": {
+    "require": "./cjs/index.js",
+    "import": "./es/index.js"
+  },
   "types": "types/index.d.ts",
   "sideEffects": false,
   "scripts": {
