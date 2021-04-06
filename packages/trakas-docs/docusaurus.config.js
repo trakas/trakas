@@ -1,5 +1,7 @@
+const isProduction = process.env.NODE_ENV === "production";
+
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
-module.exports = {
+const configs = {
   title: "Trakas",
   tagline: "Utilities for JavaScript and TypeScript",
   url: "http://trakas.js.org",
@@ -79,7 +81,7 @@ module.exports = {
         //   ],
         // },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Trakas, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Trakas. Built with Docusaurus.`,
     },
   },
   presets: [
@@ -116,3 +118,15 @@ module.exports = {
     ],
   ],
 };
+
+if (isProduction) {
+  configs.themeConfig.algolia = {
+    appId: process.env.ALGOLIA_APPLICATION_ID,
+    apiKey: process.env.ALGOLIA_API_KEY,
+    indexName: "trakas",
+    contextualSearch: true,
+    searchParameters: {},
+  };
+}
+
+module.exports = configs;
