@@ -10,6 +10,13 @@ module.exports = {
   organizationName: "trakas", // Usually your GitHub org/user name.
   projectName: "trakas.github.io", // Usually your repo name.
   themeConfig: {
+    algolia: {
+      appId: "28G6M4K0KE",
+      apiKey: "6d01e5f47b2b166e11aea2a8e72b900f",
+      indexName: "trakas",
+      contextualSearch: true,
+      searchParameters: {},
+    },
     prism: {
       theme: require("prism-react-renderer/themes/github"),
       darkTheme: require("prism-react-renderer/themes/dracula"),
@@ -79,7 +86,7 @@ module.exports = {
         //   ],
         // },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Trakas, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Trakas. Built with Docusaurus.`,
     },
   },
   presets: [

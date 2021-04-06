@@ -11,7 +11,6 @@ jobs:
   release:
     name: GitHub Pages
     runs-on: ubuntu-latest
-    needs: [tests, eslint, prettier, deepcode]
     steps:
       - name: Checkout
         uses: actions/checkout@v2.3.4
@@ -24,5 +23,15 @@ jobs:
       - name: Release
         env:
           DEPLOYMENT_BRANCH: main
-          GIT_PASS: ${{ secrets.GITHUB_TOKEN }}
-        run: yarn publish:docs
+          GIT_USER: hckhanh
+          GIT_PASS: ${{ secrets.GH_TOKEN }}
+        run: |
+          git config --global user.email "hoangchaukhanh93@gmail.com"
+          git config --global user.name "hckhanh"
+          yarn publish:docs
+      - name: Crawl docs to DocSearch
+        working-directory: packages/trakas-docs
+        env:
+          APPLICATION_ID: ${{ secrets.ALGOLIA_APPLICATION_ID }}
+          API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
+        run: docker run -it -e APPLICATION_ID=$APPLICATION_ID -e API_KEY=$API_KEY -e "CONFIG=$(cat docsearch.config.json)" algolia/docsearch-scraper
