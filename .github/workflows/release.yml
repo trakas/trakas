@@ -15,7 +15,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2.3.4
       - name: Set up Node
-        uses: actions/setup-node@v2.1.4
+        uses: actions/setup-node@v2.4.0
         with:
           check-latest: true
       - name: Check dependencies
@@ -28,7 +28,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2.3.4
       - name: Set up Node
-        uses: actions/setup-node@v2.1.4
+        uses: actions/setup-node@v2.4.0
         with:
           check-latest: true
       - name: Run tests
@@ -42,7 +42,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2.3.4
       - name: Set up Node
-        uses: actions/setup-node@v2.1.4
+        uses: actions/setup-node@v2.4.0
         with:
           check-latest: true
       - name: Run Eslint check
@@ -54,7 +54,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2.3.4
       - name: Set up Node
-        uses: actions/setup-node@v2.1.4
+        uses: actions/setup-node@v2.4.0
         with:
           check-latest: true
       - name: Run Prettier check
@@ -85,7 +85,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Set up Node
-        uses: actions/setup-node@v2.1.4
+        uses: actions/setup-node@v2.4.0
         with:
           check-latest: true
       - name: Release
