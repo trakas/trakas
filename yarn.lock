@@ -16008,12 +16008,12 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"prettier@npm:2.2.1":
-  version: 2.2.1
-  resolution: "prettier@npm:2.2.1"
+"prettier@npm:2.8.0":
+  version: 2.8.0
+  resolution: "prettier@npm:2.8.0"
   bin:
     prettier: bin-prettier.js
-  checksum: 92c6c9f4b87eba1f28466edee57dd18c80d00b858edda77d46d1950d20e6e302b68ee255fc91133ba931e63c4577b5ae30da194d9626a8f3c0177778b91bf056
+  checksum: 3ab4e0ba05e7a89289924ec91c407f149b9ea279d0ebe409c6bee2470d70636e9bea4c24d71b9bcdae48c2804a299a34ae3f50fe9d49c7207dcd56eb5b7d3d38
   languageName: node
   linkType: hard
 
@@ -19360,7 +19360,7 @@ resolve@^2.0.0-next.3:
     eslint-plugin-mdx: ^1.11.1
     eslint-plugin-react: ^7.23.1
     jest: ^26.6.3
-    prettier: 2.2.1
+    prettier: 2.8.0
     semantic-release: ^17.4.2
     semantic-release-monorepo: ^7.0.4
     ts-node: ^9.1.1
