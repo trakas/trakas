@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2.3.4
+        uses: actions/checkout@v3.3.0
       - name: Set up Node
         uses: actions/setup-node@v2.1.4
         with:
@@ -26,7 +26,7 @@ jobs:
     needs: [yarn]
     steps:
       - name: Checkout
-        uses: actions/checkout@v2.3.4
+        uses: actions/checkout@v3.3.0
       - name: Set up Node
         uses: actions/setup-node@v2.1.4
         with:
@@ -40,7 +40,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2.3.4
+        uses: actions/checkout@v3.3.0
       - name: Set up Node
         uses: actions/setup-node@v2.1.4
         with:
@@ -52,7 +52,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2.3.4
+        uses: actions/checkout@v3.3.0
       - name: Set up Node
         uses: actions/setup-node@v2.1.4
         with:
@@ -64,7 +64,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2.3.4
+        uses: actions/checkout@v3.3.0
       - name: Set up Python
         uses: actions/setup-python@v2
       - name: Install DeepCode
@@ -81,7 +81,7 @@ jobs:
     needs: [tests, eslint, prettier, deepcode]
     steps:
       - name: Checkout
-        uses: actions/checkout@v2.3.4
+        uses: actions/checkout@v3.3.0
         with:
           fetch-depth: 0
       - name: Set up Node
